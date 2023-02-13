@@ -14,13 +14,11 @@ public class clickDestroy : MonoBehaviour
         scoreTextMesh = GameObject.Find("Score").GetComponent<TMP_Text>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Called once per click
+    void OnMouseDown()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            var curScore = int.Parse(scoreTextMesh.text.Split(' ')[scoreTextMesh.text.Split(' ').Length - 1]);
-            scoreTextMesh.text = scoreTextMesh.text.Split(' ')[0] + " " + (curScore + 1);
-        }
+        var curScore = int.Parse(scoreTextMesh.text.Split(' ')[scoreTextMesh.text.Split(' ').Length - 1]);
+        scoreTextMesh.text = scoreTextMesh.text.Split(' ')[0] + " " + (curScore + 1);
+        this.gameObject.transform.position = (Random.range(0, 10), Random.range(0, 10), 0);
     }
 }

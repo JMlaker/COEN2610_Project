@@ -17,7 +17,7 @@ public class NewTile : MonoBehaviour
         spriteRenderer.sprite = sprite;
         gameObject.transform.position = new Vector3(5, 5, 0);
         gameObject.AddComponent<clickDestroy>();
-
+        gameObject.AddComponent<BoxCollider2D>();
         Debug.Log("Hello World!");
     }
 }
