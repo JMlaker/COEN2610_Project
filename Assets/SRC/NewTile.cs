@@ -15,9 +15,10 @@ public class NewTile : MonoBehaviour
         var sprite = Sprite.Create(tex, new Rect(0, 0, 32, 32), new Vector2(16, 16));
         spriteRenderer.color = Color.black;
         spriteRenderer.sprite = sprite;
+        // var collision = gameObject.AddComponent<Collider2D>();
         gameObject.transform.position = new Vector3(5, 5, 0);
         gameObject.AddComponent<clickDestroy>();
-
+        gameObject.AddComponent<BoxCollider2D>();
         Debug.Log("Hello World!");
     }
 }
