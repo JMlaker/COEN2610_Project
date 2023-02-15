@@ -19,6 +19,6 @@ public class clickDestroy : MonoBehaviour
     {
         var curScore = int.Parse(scoreTextMesh.text.Split(' ')[scoreTextMesh.text.Split(' ').Length - 1]);
         scoreTextMesh.text = scoreTextMesh.text.Split(' ')[0] + " " + (curScore + 1);
-        this.gameObject.transform.position = (Random.range(0, 10), Random.range(0, 10), 0);
+        this.gameObject.transform.position = new Vector3(Random.Range(0, 10), Random.Range(0, 10), 0);
     }
 }
