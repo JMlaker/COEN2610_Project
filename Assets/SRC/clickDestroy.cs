@@ -22,7 +22,7 @@ public class clickDestroy : MonoBehaviour
         // Update score to current score + 1
         scoreTextMesh.text = scoreTextMesh.text.Split(' ')[0] + " " + (curScore + 1);
         // Update position of game object to random position in the sqaure [0, 10] X [0, 10]
-        this.gameObject.transform.position = new Vector3(Random.Range(0, 10), Random.Range(0, 10), 0);
+        Destroy(this.gameObject);
         // Output "Clicked!"
         Debug.Log("Clicked!");
     }
