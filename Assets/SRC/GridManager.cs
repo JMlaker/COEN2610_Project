@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using UnityEngine;
 
@@ -8,9 +9,10 @@ public class GridManager : MonoBehaviour
     private int rows = 25;
     private int cols = 11;
     private float tile_size = 1;
-    public Sprite sprite;
+    public List<Sprite> sprites;
     private Camera cam;
     private GameObject[,] grid;
+    public List<int> ids = new List<int>();
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class GridManager : MonoBehaviour
         foreach (GameObject k in uGrid)
         {
             k.SetActive(true);
+            k.GetComponent<SpriteRenderer>().sprite = sprites[Random.Range(0, sprites.Count)];
         }
     }
 
@@ -35,10 +38,11 @@ public class GridManager : MonoBehaviour
     {
         GameObject gameObject = new GameObject();
         SpriteRenderer spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-        spriteRenderer.color = Color.black;
-        spriteRenderer.sprite = sprite;
+        spriteRenderer.color = Color.white;
+        spriteRenderer.sprite = sprites[0];
         gameObject.AddComponent<clickDestroy>();
         gameObject.AddComponent<BoxCollider2D>();
+        gameObject.AddComponent<Identifier>();
         for (int i = 1; i < rows - 1; i++)
         {
             for (int j = 1; j < cols - 2; j++)
@@ -69,6 +73,8 @@ public class GridManager : MonoBehaviour
                 if (uGrid[i] == null)
                 {
                     uGrid[i] = grid[randX, randY];
+                    uGrid[i].GetComponent<Identifier>().id = i.ToString();
+                    ids.Add(i);
                 }
             }
         }
