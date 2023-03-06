@@ -1,3 +1,8 @@
+/*
+ * THIS FILE IS OUTDATED!
+ * LOOK AT GridTest.cs FOR MOST RECENT GRID CREATOR!
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;

@@ -10,7 +10,8 @@ public class Identifier : MonoBehaviour
 
     void Start()
     {
-        GameObject canvas = Instantiate(new GameObject("Canvas"), this.transform);
+        GameObject tempCanvas = new GameObject("Canvas");
+        GameObject canvas = Instantiate(tempCanvas, this.transform);
         canvas.transform.localPosition = Vector3.zero;
         Canvas can = canvas.AddComponent<Canvas>();
         can.transform.localPosition = Vector3.zero;
@@ -23,5 +24,6 @@ public class Identifier : MonoBehaviour
         idText.fontSize = 0.7f;
         idText.color = Color.black;
         idText.alignment = TextAlignmentOptions.Midline;
+        Destroy(tempCanvas);
     }
 }
