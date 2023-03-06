@@ -10,6 +10,7 @@ public class GridTest : MonoBehaviour
     public List<Sprite> sprites;
     public int numOfBalloons;
     public List<int> ids = new List<int>();
+    public int score = 0;
 
     // Start is called before the first frame update
     void Start()
