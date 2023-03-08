@@ -10,13 +10,11 @@ using UnityEngine.SceneManagement;
 
 public class clickDestroy : MonoBehaviour
 {
-    private TMP_Text scoreTextMesh;
     private List<int> ids;
 
     // Start is called before the first frame update
     void Start()
     {
-        scoreTextMesh = GameObject.Find("Score").GetComponent<TMP_Text>();
         ids = GameObject.Find("GridHolder").GetComponent<GridTest>().ids;
     }
 
@@ -28,8 +26,6 @@ public class clickDestroy : MonoBehaviour
         if (int.Parse(this.gameObject.GetComponent<Identifier>().id) == ids.Min())
         {
             PlayerPrefs.SetInt("score", curScore + 1);
-            // Update score to current score + 1
-            scoreTextMesh.text = scoreTextMesh.text.Split(' ')[0] + " " + PlayerPrefs.GetInt("score");
             // Destroys game object
             Destroy(this.gameObject);
             // Removes the id from the list
@@ -43,7 +39,6 @@ public class clickDestroy : MonoBehaviour
         {
             // Update score to current score - 1
             PlayerPrefs.SetInt("score", curScore - 1);
-            scoreTextMesh.text = scoreTextMesh.text.Split(' ')[0] + " " + (curScore - 1);
         }
         // Output "Clicked!"
         Debug.Log("Clicked on tile " + this.gameObject.GetComponent<Identifier>().id);

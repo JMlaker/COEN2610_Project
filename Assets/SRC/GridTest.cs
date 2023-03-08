@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.Purchasing;
+using TMPro;
+using System.Text.RegularExpressions;
 
 public class GridTest : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class GridTest : MonoBehaviour
     {
         Camera cam = Camera.main;
         Vector2 bottomLeft = new Vector2(-1 * cam.orthographicSize * cam.aspect + 0.5f, -1 * cam.orthographicSize + 0.5f); // new Vector2(-11.1f, -4f);
-        Vector2 topRight = new Vector2(cam.orthographicSize * cam.aspect - 0.5f, cam.orthographicSize - 1f); // new Vector2(11.1f, 3f);
+        Vector2 topRight = new Vector2(cam.orthographicSize * cam.aspect - 0.5f, cam.orthographicSize - 1.75f); // new Vector2(11.1f, 3f);
         List<Vector2> points = PoissonDiskSampling.Sampling(bottomLeft, topRight, (float) Math.Sqrt(2));
         for (int i = 0; i < numOfBalloons && points.Count > 0; i++)
         {
@@ -25,6 +27,17 @@ public class GridTest : MonoBehaviour
             createTile(randPoint, i);
             points.Remove(randPoint);
         }
+    }
+
+    void Awake()
+    {
+        PlayerPrefs.SetInt("score", 0);
+    }
+
+    void Update()
+    {
+        var scoreTextMesh = GameObject.Find("Score").GetComponent<TMP_Text>();
+        scoreTextMesh.text = Regex.Replace(scoreTextMesh.text, "\\d+", PlayerPrefs.GetInt("score").ToString());
     }
 
     void createTile(Vector2 pos, int id)

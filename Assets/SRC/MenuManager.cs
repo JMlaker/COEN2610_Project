@@ -11,7 +11,6 @@ public class MenuManager : MonoBehaviour
     public void menuStart()
     {
         SceneManager.LoadScene("MainGame");
-        PlayerPrefs.SetInt("score", 0);
     }
 
     public void exit()
@@ -28,8 +27,13 @@ public class MenuManager : MonoBehaviour
     {
         if (this.gameObject.name == "ScoreMenu")
         {
-            var Score = GameObject.Find("ScoreText").GetComponent<TMP_Text>().text;
-            GameObject.Find("ScoreText").GetComponent<TMP_Text>().text = Regex.Replace(Score, "\\d+", PlayerPrefs.GetInt("score").ToString());
+            var Score = GameObject.Find("ScoreText").GetComponent<TMP_Text>();
+            Score.text = Regex.Replace(Score.text, "\\d+", PlayerPrefs.GetInt("score").ToString());
+        }
+        if (this.gameObject.name == "MainMenu")
+        {
+            var pastScore = GameObject.Find("PastScore").GetComponent<TMP_Text>();
+            pastScore.text = Regex.Replace(pastScore.text, "\\d+", PlayerPrefs.GetInt("score").ToString());
         }
     }
 }

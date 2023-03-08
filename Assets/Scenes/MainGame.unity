@@ -216,6 +216,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 5c96b730add31884895af0bf1cd32dfa, type: 3}
   numOfBalloons: 10
   ids: 
+  score: 0
 --- !u!1 &396861489
 GameObject:
   m_ObjectHideFlags: 0
