@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class QuitManager : MonoBehaviour
 {
@@ -11,6 +12,13 @@ public class QuitManager : MonoBehaviour
         {
             Debug.Log("Exitting...");
             Application.Quit();
+        }
+
+        if (Input.GetKey("r"))
+        {
+            Debug.Log("Restarting...");
+            PlayerPrefs.SetInt("score", 0);
+            SceneManager.LoadScene("MainGame");
         }
     }
 }
