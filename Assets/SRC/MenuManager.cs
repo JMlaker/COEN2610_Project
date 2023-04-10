@@ -28,6 +28,19 @@ public class MenuManager : MonoBehaviour
         SceneManager.LoadScene("MainGame");
     }
 
+    public void abcStart()
+    {
+        PlayerPrefs.SetInt("type", 1);
+        Debug.Log("Clicked on \"ABC\" button!");
+        // SceneManager.LoadScene("MainGame");
+    }
+
+    public void numberStart()
+    {
+        PlayerPrefs.SetInt("type", 0);
+        Debug.Log("Clicked on \"123\" button!");
+    }
+
     public void menuInterim()
     {
         SceneManager.LoadScene("InterimGame");
