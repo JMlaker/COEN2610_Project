@@ -11,7 +11,7 @@ public class QuitManager : MonoBehaviour
         if (Input.GetKey("escape"))
         {
             Debug.Log("Exitting...");
-            Application.Quit();
+            SceneManager.LoadScene("ScoreMenu");
         }
 
         if (Input.GetKey("r"))
