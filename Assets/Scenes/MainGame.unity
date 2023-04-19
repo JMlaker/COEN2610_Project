@@ -537,12 +537,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: c4c8b26d4f0d7914cb65d941f7d6980e, type: 3}
-  - {fileID: 21300000, guid: b7846138162cb944a99f401dae5588ff, type: 3}
-  - {fileID: 21300000, guid: c9188a0a97fcb074f8f0c210502252dc, type: 3}
-  - {fileID: 21300000, guid: b26f0a2622cc31843a8736f51fcf4955, type: 3}
-  - {fileID: 21300000, guid: 79a6cd01af3963349b6cf6bfeafe1462, type: 3}
-  - {fileID: 21300000, guid: 5c96b730add31884895af0bf1cd32dfa, type: 3}
+  - {fileID: 21300000, guid: 7cfbf5f2ac40eb5438570a7dbd302fe1, type: 3}
+  - {fileID: 21300000, guid: 0beaeeddce9719f4c8cfac3cb43fc184, type: 3}
+  - {fileID: 21300000, guid: 51705eb1dc853134789a7419d023beb4, type: 3}
+  - {fileID: 21300000, guid: 967631170772fe94a917ffce5fc72289, type: 3}
+  - {fileID: 21300000, guid: 4b24d9ab5c6c23f419109d2acac447cc, type: 3}
+  - {fileID: 21300000, guid: 7d7eb68b55926b9429c927b2110b2fae, type: 3}
+  - {fileID: 21300000, guid: 4c0ffcf67852f2144afafc1ba247b899, type: 3}
   numOfBalloons: 10
   ids: 
   score: 0
