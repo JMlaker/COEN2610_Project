@@ -13,7 +13,7 @@ public class clickDestroy : MonoBehaviour
     private List<int> ids;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         ids = GameObject.Find("GridHolder").GetComponent<GridTest>().ids;
     }
@@ -30,6 +30,12 @@ public class clickDestroy : MonoBehaviour
             Destroy(this.gameObject);
             // Removes the id from the list
             ids.Remove(int.Parse(this.gameObject.GetComponent<Identifier>().id));
+
+            if (PlayerPrefs.GetInt("mode") == 1)
+            {
+                GameObject.Find("GridHolder").GetComponent<GridTest>().summonBalloon(ids.Max());
+            }
+
             if (ids.Count == 0)
             {
                 SceneManager.LoadScene("ScoreMenu");

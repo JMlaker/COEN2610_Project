@@ -17,6 +17,7 @@ public class TimerManager : MonoBehaviour
         cam.ResetAspect();
         timer.rectTransform.position = new Vector2(cam.orthographicSize * cam.aspect, cam.orthographicSize);
         timer.rectTransform.anchoredPosition -= timer.rectTransform.sizeDelta / 2;
+        timer.transform.position = new Vector3(timer.transform.position.x, timer.transform.position.y, 100);
 
         time = 0d;
     }
