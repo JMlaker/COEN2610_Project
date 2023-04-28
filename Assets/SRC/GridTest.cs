@@ -6,13 +6,12 @@ using System;
 using UnityEngine.Purchasing;
 using TMPro;
 using System.Text.RegularExpressions;
-using UnityEditor.Animations;
 using Unity.VisualScripting;
 
 public class GridTest : MonoBehaviour
 {
     public List<Sprite> sprites;
-    public List<AnimatorController> animators;
+    public List<RuntimeAnimatorController> animators;
     public int numOfBalloons;
     public List<int> ids = new List<int>();
     private List<Vector2> points;
