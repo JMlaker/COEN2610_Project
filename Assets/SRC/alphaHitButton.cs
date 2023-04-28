@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -27,8 +28,26 @@ public class alphaHitButton : MonoBehaviour
             Texture2D texture = image.sprite.texture;
             if (texture != null) // Check if texture is not null
             {
-                Color pixelColor = texture.GetPixel((int)(pixelUV.x * texture.width), (int)(pixelUV.y * texture.height)); // Get the color of the pixel at the UV coordinates
-                clickDetection(pixelColor);
+                List<Color> pixelColors = new List<Color>
+                {
+                    texture.GetPixel((int)(pixelUV.x * texture.width + 15), (int)(pixelUV.y * texture.height)),
+                    texture.GetPixel((int)(pixelUV.x * texture.width - 15), (int)(pixelUV.y * texture.height)),
+                    texture.GetPixel((int)(pixelUV.x * texture.width), (int)(pixelUV.y * texture.height + 15)),
+                    texture.GetPixel((int)(pixelUV.x * texture.width), (int)(pixelUV.y * texture.height - 15)),
+                    texture.GetPixel((int)(pixelUV.x * texture.width), (int)(pixelUV.y * texture.height))
+                };
+                foreach (Color color in pixelColors)
+                {
+                    Debug.Log(color);
+                }
+
+                if (pixelColors.Contains(new Color(0, 0, 0)))
+                {
+                    clickDetectionList(pixelColors);
+                } else
+                {
+                    clickDetection(pixelColors[4]);
+                }
             }
         }
     }
@@ -61,6 +80,49 @@ public class alphaHitButton : MonoBehaviour
                 Debug.Log("Clicked on \"infinite\" button!");
                 SceneManager.LoadScene("MainGame");
             } else if (secondSet.Contains(pixelRounded))
+            {
+                PlayerPrefs.SetInt("mode", 0);
+                Debug.Log("Clicked on \"timer\" button!");
+                SceneManager.LoadScene("MainGame");
+            }
+        }
+    }
+
+    private void clickDetectionList(List<Color> pixels)
+    {
+        List<Color> firstSet = new List<Color> { new Color(0.482f, 0.357f, 0.243f, 1.000f), new Color(0.396f, 0.576f, 0.345f, 1.000f), new Color(0.753f, 0.894f, 0.906f, 1.000f) };
+        List<Color> secondSet = new List<Color> { new Color(0.463f, 0.827f, 0.890f, 1.000f), new Color(0.647f, 0.435f, 0.741f, 1.000f), new Color(0.937f, 0.220f, 0.631f, 1.000f) };
+        for (int i = 0; i < pixels.Count; i++)
+        {
+            Color pixel = pixels[i];
+            pixels[i] = new Color((float)Math.Round(pixel.r, 3), (float)Math.Round(pixel.g, 3), (float)Math.Round(pixel.b, 3), 1.000f);
+        }
+
+        if (this.gameObject.name == "mainMenu")
+        {
+            if (firstSet.Intersect(pixels).Any())
+            {
+                PlayerPrefs.SetInt("type", 0);
+                Debug.Log("Clicked on \"123\" button!");
+                SceneManager.LoadScene("InterimGame");
+            }
+            else if (secondSet.Intersect(pixels).Any())
+            {
+                PlayerPrefs.SetInt("type", 1);
+                Debug.Log("Clicked on \"ABC\" button!");
+                SceneManager.LoadScene("InterimGame");
+            }
+        }
+
+        if (this.gameObject.name == "interimGame")
+        {
+            if (firstSet.Intersect(pixels).Any())
+            {
+                PlayerPrefs.SetInt("mode", 1);
+                Debug.Log("Clicked on \"infinite\" button!");
+                SceneManager.LoadScene("MainGame");
+            }
+            else if (secondSet.Intersect(pixels).Any())
             {
                 PlayerPrefs.SetInt("mode", 0);
                 Debug.Log("Clicked on \"timer\" button!");

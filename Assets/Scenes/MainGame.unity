@@ -203,12 +203,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.01
+  m_fontSize: 22
   m_fontSizeBase: 22
   m_fontWeight: 400
-  m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 23.01
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 17
+  m_fontSizeMax: 20.3
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
@@ -290,6 +290,7 @@ GameObject:
   - component: {fileID: 255078359}
   - component: {fileID: 255078358}
   - component: {fileID: 255078366}
+  - component: {fileID: 255078367}
   m_Layer: 5
   m_Name: mainGame
   m_TagString: Untagged
@@ -453,6 +454,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 2053199930}
+--- !u!114 &255078367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255078357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b019ff0c2a740a443bf4413f4581c27a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - {fileID: 105957501}
+  - {fileID: 2053199930}
+  - {fileID: 1005964078}
+  - {fileID: 1115877604}
+  scaler:
+  - 1
+  - 1
+  - 1
+  - 2.5
 --- !u!1 &324298158
 GameObject:
   m_ObjectHideFlags: 0
@@ -544,11 +567,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4b24d9ab5c6c23f419109d2acac447cc, type: 3}
   - {fileID: 21300000, guid: 7d7eb68b55926b9429c927b2110b2fae, type: 3}
   - {fileID: 21300000, guid: 4c0ffcf67852f2144afafc1ba247b899, type: 3}
+  animators:
+  - {fileID: 9100000, guid: 2c8f5d381f3bf5d44af24bbfda2c9c4f, type: 2}
+  - {fileID: 9100000, guid: cc8067d08f0007640ab028dbb538a729, type: 2}
+  - {fileID: 9100000, guid: 455f4d05fb8a5e040a0a0d5f6cdf71be, type: 2}
+  - {fileID: 9100000, guid: ed5a7c95534110e4ba6dbcba0683f5a0, type: 2}
+  - {fileID: 9100000, guid: 5f0283673bfd1704590bb67175dcaec6, type: 2}
+  - {fileID: 9100000, guid: 2ed8bb94e4f9f7b468a754601208bf00, type: 2}
+  - {fileID: 9100000, guid: fd5b57c61a8e3854a9590e386574524c, type: 2}
   numOfBalloons: 10
   ids: 
   score: 0
   timer: {fileID: 2053199930}
   help: {fileID: 1005964078}
+  pop: {fileID: 8300000, guid: c103c103550471945a36d6834261abe0, type: 3}
 --- !u!1 &396861489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1215,10 +1247,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.57
+  m_fontSize: 26
   m_fontSizeBase: 26
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 0
   m_fontSizeMax: 22.57
   m_fontStyle: 0
@@ -1365,10 +1397,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70.82
+  m_fontSize: 44.75
   m_fontSizeBase: 44.75
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 70.82
   m_fontStyle: 0
@@ -1707,10 +1739,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24.04
+  m_fontSize: 22
   m_fontSizeBase: 22
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 24.04
   m_fontStyle: 0

@@ -11,11 +11,13 @@ using UnityEngine.SceneManagement;
 public class clickDestroy : MonoBehaviour
 {
     private List<int> ids;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Awake()
     {
         ids = GameObject.Find("GridHolder").GetComponent<GridTest>().ids;
+        anim = this.GetComponent<Animator>();
     }
 
     // Called once per click on gameObject
@@ -26,8 +28,7 @@ public class clickDestroy : MonoBehaviour
         if (int.Parse(this.gameObject.GetComponent<Identifier>().id) == ids.Min())
         {
             PlayerPrefs.SetInt("score", curScore + 1);
-            // Destroys game object
-            Destroy(this.gameObject);
+            this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             // Removes the id from the list
             ids.Remove(int.Parse(this.gameObject.GetComponent<Identifier>().id));
 
@@ -41,6 +42,8 @@ public class clickDestroy : MonoBehaviour
                 SceneManager.LoadScene("ScoreMenu");
                 PlayerPrefs.SetInt("score", curScore + 1);
             }
+            anim.Play("pop");
+            this.gameObject.GetComponent<AudioSource>().Play();
         } else if (curScore > 0)
         {
             // Update score to current score - 1
@@ -48,5 +51,13 @@ public class clickDestroy : MonoBehaviour
         }
         // Output "Clicked!"
         Debug.Log("Clicked on tile " + this.gameObject.GetComponent<Identifier>().id);
+    }
+
+    void Update()
+    {
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("pop end"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

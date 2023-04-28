@@ -888,10 +888,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.01
+  m_fontSize: 22
   m_fontSizeBase: 22
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 23.01
   m_fontStyle: 0
@@ -1863,6 +1863,7 @@ GameObject:
   - component: {fileID: 1131793607}
   - component: {fileID: 1131793614}
   - component: {fileID: 1131793615}
+  - component: {fileID: 1131793617}
   m_Layer: 5
   m_Name: mainMenu
   m_TagString: Untagged
@@ -2020,6 +2021,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9611342ecbd262644a7f6a3a544a8a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1131793617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1131793605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b019ff0c2a740a443bf4413f4581c27a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - {fileID: 686857534}
+  scaler:
+  - 1
 --- !u!1 &1308099968
 GameObject:
   m_ObjectHideFlags: 0

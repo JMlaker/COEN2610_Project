@@ -934,6 +934,7 @@ GameObject:
   - component: {fileID: 609602636}
   - component: {fileID: 609602635}
   - component: {fileID: 609602643}
+  - component: {fileID: 609602644}
   m_Layer: 5
   m_Name: scoreMenu
   m_TagString: Untagged
@@ -1094,6 +1095,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9611342ecbd262644a7f6a3a544a8a6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &609602644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609602633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b019ff0c2a740a443bf4413f4581c27a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  texts:
+  - {fileID: 1966062736}
+  - {fileID: 2007644367}
+  scaler:
+  - 1
+  - 1.8
 --- !u!1 &714499807
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,10 +2156,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 23.01
+  m_fontSize: 22
   m_fontSizeBase: 22
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 23.01
   m_fontStyle: 0
@@ -2287,10 +2306,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.9
+  m_fontSize: 44.75
   m_fontSizeBase: 44.75
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 46.9
   m_fontStyle: 0

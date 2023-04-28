@@ -6,15 +6,19 @@ using System;
 using UnityEngine.Purchasing;
 using TMPro;
 using System.Text.RegularExpressions;
+using UnityEditor.Animations;
+using Unity.VisualScripting;
 
 public class GridTest : MonoBehaviour
 {
     public List<Sprite> sprites;
+    public List<AnimatorController> animators;
     public int numOfBalloons;
     public List<int> ids = new List<int>();
     private List<Vector2> points;
     public int score = 0;
     public TMP_Text timer, help;
+    public AudioClip pop;
 
     // Start is called before the first frame update
     void Awake()
@@ -43,10 +47,18 @@ public class GridTest : MonoBehaviour
         GameObject gameObject = new GameObject();
         SpriteRenderer spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         spriteRenderer.color = Color.white;
-        spriteRenderer.sprite = sprites[UnityEngine.Random.Range(0, sprites.Count)];
+        int randomSprite = UnityEngine.Random.Range(0, sprites.Count);
+        spriteRenderer.sprite = sprites[randomSprite];
         gameObject.AddComponent<clickDestroy>();
         gameObject.AddComponent<BoxCollider2D>();
         gameObject.AddComponent<Identifier>();
+        AudioSource sound = gameObject.AddComponent<AudioSource>();
+        sound.playOnAwake = false;
+        sound.clip = pop;
+        Animator anim = gameObject.AddComponent<Animator>();
+        anim.runtimeAnimatorController = animators[randomSprite];
+        
+        
         GameObject tile = Instantiate(gameObject, this.transform);
         tile.transform.localPosition = pos;
         tile.GetComponent<Identifier>().id = (id + 1).ToString();
