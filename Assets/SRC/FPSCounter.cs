@@ -4,6 +4,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using Unity.VisualScripting.FullSerializer.Internal;
+using UnityEngine.UI;
 
 public class FPSCounter : MonoBehaviour
 {
