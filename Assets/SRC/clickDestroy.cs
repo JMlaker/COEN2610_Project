@@ -29,6 +29,7 @@ public class clickDestroy : MonoBehaviour
         {
             PlayerPrefs.SetInt("score", curScore + 1);
             this.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            this.gameObject.GetComponentInChildren<TMP_Text>().text = "";
             // Removes the id from the list
             ids.Remove(int.Parse(this.gameObject.GetComponent<Identifier>().id));
 
@@ -43,7 +44,8 @@ public class clickDestroy : MonoBehaviour
                 PlayerPrefs.SetInt("score", curScore + 1);
             }
             anim.Play("pop");
-            this.gameObject.GetComponent<AudioSource>().Play();
+            AudioClip clip = this.gameObject.GetComponent<AudioSource>().clip;
+            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 3));
         } else if (curScore > 0)
         {
             // Update score to current score - 1

@@ -51,6 +51,7 @@ public class GridTest : MonoBehaviour
         gameObject.AddComponent<clickDestroy>();
         gameObject.AddComponent<BoxCollider2D>();
         gameObject.AddComponent<Identifier>();
+        // gameObject.AddComponent<AudioListener>();
         AudioSource sound = gameObject.AddComponent<AudioSource>();
         sound.playOnAwake = false;
         sound.clip = pop;
