@@ -44,8 +44,9 @@ public class clickDestroy : MonoBehaviour
                 PlayerPrefs.SetInt("score", curScore + 1);
             }
             anim.Play("pop");
-            AudioClip clip = this.gameObject.GetComponent<AudioSource>().clip;
-            AudioSource.PlayClipAtPoint(clip, new Vector3(5, 1, 3));
+            AudioSource audio = GameObject.Find("GridHolder").GetComponent<AudioSource>();
+            audio.time = 0.55f;
+            audio.Play();
         } else if (curScore > 0)
         {
             // Update score to current score - 1

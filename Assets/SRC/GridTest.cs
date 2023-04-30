@@ -17,7 +17,6 @@ public class GridTest : MonoBehaviour
     private List<Vector2> points;
     public int score = 0;
     public TMP_Text timer, help;
-    public AudioClip pop;
 
     // Start is called before the first frame update
     void Awake()
@@ -51,10 +50,6 @@ public class GridTest : MonoBehaviour
         gameObject.AddComponent<clickDestroy>();
         gameObject.AddComponent<BoxCollider2D>();
         gameObject.AddComponent<Identifier>();
-        // gameObject.AddComponent<AudioListener>();
-        AudioSource sound = gameObject.AddComponent<AudioSource>();
-        sound.playOnAwake = false;
-        sound.clip = pop;
         Animator anim = gameObject.AddComponent<Animator>();
         anim.runtimeAnimatorController = animators[randomSprite];
         

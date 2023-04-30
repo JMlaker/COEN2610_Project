@@ -10,8 +10,9 @@ public class test_script : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(Camera.main.aspect);
         Debug.Log(Camera.main.pixelWidth);
-        text.fontSize = 3 * Camera.main.pixelWidth / Screen.dpi;
+        Debug.Log(Camera.main.pixelHeight);
     }
 
     // Update is called once per frame
