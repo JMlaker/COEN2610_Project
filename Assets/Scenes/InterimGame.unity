@@ -3045,7 +3045,7 @@ Canvas:
   m_GameObject: {fileID: 1520490095}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 640334707}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -3132,7 +3132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 2112979544}
-  camera: {fileID: 0}
+  camera: {fileID: 640334707}
 --- !u!114 &1520490104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4095,8 +4095,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 0 FPS
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 586a090082230bd46a7a02eb933cff5c, type: 2}
+  m_sharedMaterial: {fileID: 795427540004009681, guid: 586a090082230bd46a7a02eb933cff5c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
