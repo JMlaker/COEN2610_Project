@@ -45,7 +45,7 @@ public class clickDestroy : MonoBehaviour
             }
             anim.Play("pop");
             AudioSource audio = GameObject.Find("GridHolder").GetComponent<AudioSource>();
-            audio.time = 0.55f;
+            audio.time = 0.4f;
             audio.Play();
         } else if (curScore > 0)
         {
