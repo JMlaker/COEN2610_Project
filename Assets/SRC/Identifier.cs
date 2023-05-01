@@ -20,6 +20,7 @@ public class Identifier : MonoBehaviour
         canTran.anchorMax = new Vector2(0.5f, 0.5f);
         canTran.pivot = new Vector2(0.5f, 0.5f);
         TMP_Text idText = can.AddComponent<TextMeshProUGUI>();
+        idText.font = GameObject.Find("Score").GetComponent<TMP_Text>().font;
         switch (PlayerPrefs.GetInt("type")) {
             /* numbers */ case 0: idText.text = id; break;
             /* letters */ case 1: idText.text = char.ToString((char)(((int.Parse(id) - 1) % 26) + 97)); break;
