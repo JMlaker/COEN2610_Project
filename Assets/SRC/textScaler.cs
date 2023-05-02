@@ -19,7 +19,7 @@ public class textScaler : MonoBehaviour
     {
         for (int i = 0; i < texts.Count; i++)
         {
-            texts[i].fontSize = scaler[i] * 3 * Camera.main.pixelWidth / Screen.dpi;
+            texts[i].fontSize = scaler[i] * 3 * Camera.main.pixelWidth / 144;
         }
     }
 }
