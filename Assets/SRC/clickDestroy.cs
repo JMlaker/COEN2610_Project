@@ -12,11 +12,13 @@ public class clickDestroy : MonoBehaviour
 {
     private List<int> ids;
     private Animator anim;
+    private GridTest grid;
 
     // Start is called before the first frame update
     void Awake()
     {
-        ids = GameObject.Find("GridHolder").GetComponent<GridTest>().ids;
+        grid = GameObject.Find("GridHolder").GetComponent<GridTest>();
+        ids = grid.ids;
         anim = this.GetComponent<Animator>();
     }
 
@@ -36,6 +38,11 @@ public class clickDestroy : MonoBehaviour
             if (PlayerPrefs.GetInt("mode") == 1)
             {
                 GameObject.Find("GridHolder").GetComponent<GridTest>().summonBalloon(ids.Max());
+                if (grid.getPointCount() <= 1)
+                {
+                    grid.resetPoints();
+                    Debug.Log("Resetting points");
+                }
             }
 
             if (ids.Count == 0)

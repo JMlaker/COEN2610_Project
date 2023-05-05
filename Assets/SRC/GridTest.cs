@@ -14,7 +14,9 @@ public class GridTest : MonoBehaviour
     public List<RuntimeAnimatorController> animators;
     public int numOfBalloons;
     public List<int> ids = new List<int>();
+    private Vector2 bottomLeft, topRight;
     private List<Vector2> points;
+    private List<Vector2> originalPoints;
     public int score = 0;
     public TMP_Text timer, help;
 
@@ -24,9 +26,10 @@ public class GridTest : MonoBehaviour
         timer.enabled = PlayerPrefs.GetInt("mode") == 0 ? true : false;
         help.enabled = PlayerPrefs.GetInt("mode") == 1 ? true : false;
         Camera cam = Camera.main;
-        Vector2 bottomLeft = new Vector2(-1 * cam.orthographicSize * cam.aspect + 0.5f, -1 * cam.orthographicSize + 0.5f); // new Vector2(-11.1f, -4f);
-        Vector2 topRight = new Vector2(cam.orthographicSize * cam.aspect - 0.5f, cam.orthographicSize - 1.75f); // new Vector2(11.1f, 3f);
+        bottomLeft = new Vector2(-1 * cam.orthographicSize * cam.aspect + 0.5f, -1 * cam.orthographicSize + 0.5f); // new Vector2(-11.1f, -4f);
+        topRight = new Vector2(cam.orthographicSize * cam.aspect - 0.5f, cam.orthographicSize - 1.75f); // new Vector2(11.1f, 3f);
         points = PoissonDiskSampling.Sampling(bottomLeft, topRight, (float) Math.Sqrt(2));
+        originalPoints = new List<Vector2>(points);
         for (int i = 0; i < numOfBalloons && points.Count > 0; i++)
         {
             summonBalloon(i);
@@ -50,6 +53,7 @@ public class GridTest : MonoBehaviour
         gameObject.AddComponent<clickDestroy>();
         gameObject.AddComponent<BoxCollider2D>();
         gameObject.AddComponent<Identifier>();
+        gameObject.tag = "tile";
         Animator anim = gameObject.AddComponent<Animator>();
         anim.runtimeAnimatorController = animators[randomSprite];
         
@@ -66,5 +70,20 @@ public class GridTest : MonoBehaviour
         var randPoint = points[UnityEngine.Random.Range(0, points.Count)];
         createTile(randPoint, id);
         points.Remove(randPoint);
+    }
+
+    public void resetPoints()
+    {
+        points.Clear();
+        points = originalPoints;
+        foreach (GameObject tile in GameObject.FindGameObjectsWithTag("tile"))
+        {
+            points.Remove(tile.transform.position);
+        }
+    }
+
+    public int getPointCount()
+    { 
+        return points.Count;
     }
 }
